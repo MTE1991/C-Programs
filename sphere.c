@@ -23,11 +23,9 @@ void main()
     a = area(r);
     v = volume(r);
     
-    if (strcmp(choice, "Area") == 0)
-    printf("Area = %.3f", a);
+    if (strcmp(choice, "Area") == 0) printf("Area = %.3f\n", a);
     
-    else if (strcmp(choice, "Volume") == 0)
-    printf("Volume = %.3f", v);
+    else if (strcmp(choice, "Volume") == 0) printf("Volume = %.3f\n", v);
 }
 
 float area(float r)
@@ -38,6 +36,6 @@ float area(float r)
 
 float volume(float r)
 {
-    float volume = (4/3) * PI * powf(r, 3)
+    float volume = (4/3) * PI * powf(r, 3);
     return volume;
 }
