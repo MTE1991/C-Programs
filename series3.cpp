@@ -2,9 +2,9 @@
 
 int main(void)
 {
-	int i = 0, d=2;
+    int i = 0, d=2;
 	
-	printf("Aritmetic series: ");
+	printf("The aritmetic series: ");
 	
 	while (i<=d){
 		i += 2;
