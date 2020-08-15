@@ -8,7 +8,7 @@ int main()
     i = 2;
     
     printf("Enter the value of d =");
-    scanf("%d", &n);
+    scanf("%d", &d);
     
     printf("The arithmetic series: ")
     do {
