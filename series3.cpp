@@ -2,12 +2,7 @@
 
 int main(void)
 {
-	int i = 0, d;
-	
-	printf("Enter the value of d = ");
-	scanf("%d", &d);
-	
-	printf("The arithmetic series: ");
+	int i = 0, d=2;
 	
 	while (i<=d){
 		i += 2;
