@@ -4,11 +4,7 @@
 
 int main()
 {
-    int i, d; // d is the common difference
-    i = 2;
-    
-    printf("Enter the value of d =");
-    scanf("%d", &d);
+    int i = 2, d = 2; // d is the common difference
     
     printf("The arithmetic series: ")
     do {
