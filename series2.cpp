@@ -1,14 +1,11 @@
-// Aritmatic series
+// Aritmetic series
 
 #include <stdio.h>
 
 int main()
 {
-    int d; // d is the common difference
-    
-    printf("Enter the value of d = ");
-    scanf("%d", &d);
-    
+    int d = 2; // d is the common difference
+
     printf("The arithmetic series: ");
     
     for (int i=2; i<=d; i+=2)
