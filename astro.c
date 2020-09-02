@@ -43,12 +43,11 @@ double d_s(double m); // Schwarzchild density
 int main()
 {
     int ch, ch2;
-    char ch3 = "Y", ch4 = "N";
     double val;
     char unit1[] = "AU", unit2[] = "PARSEC", unit3[] = "LY";
     
     printf("Note: use SI units when inputting unit values other than AU, LY and PARSEC.\n\n");
-    printf("1. Planets distance from sun\n");
+    printf("1. Solar System info\n");
     printf("2. Astro-distance converter\n");
     printf("3. Schwarzchild radius and density of any object\n");
     printf("4. Gravity of any object\n");
@@ -78,6 +77,7 @@ int main()
             printf("%.3lf LY = %.3e m\n", val, conv_to_m(unit3, val));
         }
     }
+    
     else if (ch == 3) {
         double m, r;
         printf("Enter the mass and radius: ");
@@ -103,9 +103,12 @@ int main()
 }
 
 void solarsys(void) {
-    printf("Planet\t\tDistance from sun (AU)\t\t Distance from sun (m)\n");
+    printf("Planet\t\tDistance from sun (AU)\t\tDistance from sun (m)\n");
     int i = 0;  
-    for (i = 0; i <= 8; ++i) printf("%s\t\t%.3f\t\t\t%.3f\n", planets + i, dist_au[i], dist_au[i] * AU);
+    for (i = 0; i <= 8; ++i) printf("%s\t\t%.3f\t\t\t\t%.3e\n", planets + i, dist_au[i], dist_au[i] * AU);
+    printf("\n");
+    printf("Planet\t\tMass (kg)\t\tRadius (km)\n");
+    for (i = 0; i <= 8; ++i) printf("%s\t\t%.3e\t\t%.3f\n", planets + i, mass[i], radii[i]);
     printf("\n");
 }
 
