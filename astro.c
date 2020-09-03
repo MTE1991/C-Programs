@@ -12,7 +12,7 @@
 #define LY 9.46e15 // m
 #define PARSEC 3.26 // ly
 #define gravity(m, r) ((G * m) / (r * r)) // gravity of any object in macro definition
-#define v_escape(m, r) (sqrt(2*G*m / r))  // escape velocity
+#define v_escape(m, r) (sqrt(2 * G * m / r))  // escape velocity
 #define density(m, v) (m / v) // density in kgm^-3
 
 char planets[9][20] = {
@@ -43,9 +43,11 @@ double d_s(double m); // Schwarzchild density
 int main()
 {
     int ch, ch2;
+    char ch3[] = "Y", ch4[] = "y";
     double val;
     char unit1[] = "AU", unit2[] = "PARSEC", unit3[] = "LY";
-    
+
+start:
     printf("Note: use SI units when inputting unit values other than AU, LY and PARSEC.\n\n");
     printf("1. Solar System info\n");
     printf("2. Astro-distance converter\n");
@@ -77,13 +79,12 @@ int main()
             printf("%.3lf LY = %.3e m\n", val, conv_to_m(unit3, val));
         }
     }
-    
     else if (ch == 3) {
         double m, r;
         printf("Enter the mass and radius: ");
         scanf("%lf %lf", &m, &r);
-        printf("Schwarzchild radius = %.3lf m\n", r_s(m, r));
-        printf("Schwarzchild density = %.3lf kg/m^3\n", d_s(m));
+        printf("Schwarzchild radius = %.2e m\n", r_s(m, r));
+        printf("Schwarzchild density = %.2e kg/m^3\n", d_s(m));
     }
     else if (ch == 4) {
         double m, r;
@@ -95,11 +96,14 @@ int main()
         double m, v;
         printf("Enter mass and volume: ");
         scanf("%lf %lf", &m, &v);
-        printf("Density = %.3e kg/m^3", density(m, v));
+        printf("Density = %.3f kg/m^3\n", density(m, v));
     }
     else if (ch == 6) sun_info();
-    
-	return 0;
+
+    printf("Do you want to run again? (Y/N) > ");
+    scanf("%s", ch3);
+    if (strcmp(ch3, "Y") == 0 || strcmp(ch3, "y") == 0) goto start;
+    else return 0;
 }
 
 void solarsys(void) {
@@ -127,11 +131,11 @@ double d_s(double m) {
 }
 
 void sun_info(void) {
-    printf("Mass = %.3e kg\n", M_SUN);
-    printf("Volume = %.3e m^3\n", V_SUN);
-    printf("Density = %d kg/m^3\n", density(M_SUN, R_SUN));
+    printf("Mass = %.2e kg\n", M_SUN);
+    printf("Volume = %.2e m^3\n", V_SUN);
+    printf("Density = %.3lf kg/m^3\n", density(M_SUN, V_SUN));
     printf("Schwarzchild density = %.3e kg/m^3\n", d_s(M_SUN));
-    printf("Radius = %.3e m\n", R_SUN);
-    printf("Schwarzchild radius = %d m\n", r_s(M_SUN, R_SUN));
-    printf("Escape velocity = %f m/s\n\n", v_escape(M_SUN, R_SUN));
+    printf("Radius = %.2e m\n", R_SUN);
+    printf("Schwarzchild radius = %.2e m\n", r_s(M_SUN, R_SUN));
+    printf("Escape velocity = %e m/s\n\n", v_escape(M_SUN, R_SUN));
 }
